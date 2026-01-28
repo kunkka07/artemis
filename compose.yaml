@@ -1,0 +1,15 @@
+services:
+  artemis:
+    image: apache/activemq-artemis:latest # Use a specific tag for production
+    ports:
+      - "8161:8161" # Web console
+      - "61616:61616" # Default messaging port
+    environment:
+      ARTEMIS_USER: artemis
+      ARTEMIS_PASSWORD: simetraehcapa # Default password for the web console
+      ANONYMOUS_LOGIN: "false"
+    volumes:
+      - artemis-data:/var/lib/artemis/data
+
+volumes:
+  artemis-data:
